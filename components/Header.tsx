@@ -43,7 +43,7 @@ export function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
         <Link href="/" className="flex items-center gap-2">
           <span className="grid h-9 w-9 place-items-center rounded-2xl bg-amber-400 text-lg font-black text-black">
-            TV
+            ف
           </span>
           <span>
             <span className="block text-sm font-bold">فریمان</span>
