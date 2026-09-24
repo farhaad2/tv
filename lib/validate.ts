@@ -43,8 +43,8 @@ export function validateStep(step: number, data: RequirementData): string | null
     if (data.brandsToSell.length === 0) return "حداقل یک برند برای فروش انتخاب کنید.";
     const brandsOther = validateOtherMulti(data.brandsToSell, data.brandsOther, "برندها");
     if (brandsOther) return brandsOther;
-    if (data.sizeRanges.length === 0) return "حداقل یک بازه سایز انتخاب کنید.";
-    const sizeOther = validateOtherMulti(data.sizeRanges, data.sizeRangesOther, "بازه سایز");
+    if (data.sizeRanges.length === 0) return "حداقل یک دسته کالا انتخاب کنید.";
+    const sizeOther = validateOtherMulti(data.sizeRanges, data.sizeRangesOther, "دسته‌های کالا");
     if (sizeOther) return sizeOther;
     if (!data.productVolume) return "حجم تقریبی کاتالوگ را مشخص کنید.";
     const volumeOther = validateOtherSingle(

@@ -58,7 +58,7 @@ export default function RegisterPage() {
     >
       <h1 className="text-2xl font-black">ثبت‌نام صاحب فروشگاه</h1>
       <p className="text-sm text-white/60">
-        با ایمیل و رمز عبور حساب بسازید و نیازمندی‌های سایت فروش تلویزیون خود را ثبت کنید.
+        با ایمیل و رمز عبور حساب بسازید و نیازمندی‌های فروشگاه اینترنتی ورزشی خود را ثبت کنید.
       </p>
       <Field label="نام و نام خانوادگی">
         <input

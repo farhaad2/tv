@@ -9,7 +9,7 @@ import {
   INVENTORY_SOURCE,
   PAYMENT_GATEWAYS,
   PRODUCT_VOLUME,
-  SIZE_RANGES,
+  PRODUCT_CATEGORIES,
   labelWithOther,
   labelsWithOther,
 } from "@/lib/catalog";
@@ -27,7 +27,7 @@ function Info({ label, value }: { label: string; value: string }) {
 
 function serviceToggleLabels(data: RequirementData): string {
   const items: string[] = [];
-  if (data.installationOnSite) items.push("نصب در محل");
+  if (data.installationOnSite) items.push("مرجوعی و تعویض سایز");
   if (data.warrantyDisplay) items.push("نمایش گارانتی");
   if (data.transparentCheckout) items.push("شفافیت قبل از پرداخت");
   return items.join("، ");
@@ -68,11 +68,11 @@ export function ReviewPanel({
           value={labelsWithOther(data.brandsToSell, BRANDS, data.brandsOther).join("، ")}
         />
         <Info
-          label="سایزها"
-          value={labelsWithOther(data.sizeRanges, SIZE_RANGES, data.sizeRangesOther).join("، ")}
+          label="دسته‌های کالا"
+          value={labelsWithOther(data.sizeRanges, PRODUCT_CATEGORIES, data.sizeRangesOther).join("، ")}
         />
         <Info
-          label="تعداد مدل"
+          label="حجم کاتالوگ"
           value={labelWithOther(data.productVolume, PRODUCT_VOLUME, data.productVolumeOther)}
         />
         <Info

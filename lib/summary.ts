@@ -7,7 +7,7 @@ import {
   INVENTORY_SOURCE,
   PAYMENT_GATEWAYS,
   PRODUCT_VOLUME,
-  SIZE_RANGES,
+  PRODUCT_CATEGORIES,
   labelWithOther,
   labelsWithOther,
 } from "./catalog";
@@ -29,7 +29,7 @@ const FORM_INPUT_STEPS = 6;
 
 function serviceToggleLabels(data: RequirementData): string[] {
   const items: string[] = [];
-  if (data.installationOnSite) items.push("نصب در محل");
+  if (data.installationOnSite) items.push("مرجوعی و تعویض سایز");
   if (data.warrantyDisplay) items.push("نمایش گارانتی");
   if (data.transparentCheckout) items.push("شفافیت قبل از پرداخت");
   return items;
@@ -71,13 +71,13 @@ export function summarizeRequirements(data: RequirementData): RequirementSummary
   }
   if (data.sizeRanges.length) {
     highlights.push({
-      label: "سایز تلویزیون",
-      value: labelsWithOther(data.sizeRanges, SIZE_RANGES, data.sizeRangesOther).join("، "),
+      label: "دسته‌های کالا",
+      value: labelsWithOther(data.sizeRanges, PRODUCT_CATEGORIES, data.sizeRangesOther).join("، "),
     });
   }
   if (data.productVolume) {
     highlights.push({
-      label: "تعداد مدل",
+      label: "حجم کاتالوگ",
       value: labelWithOther(data.productVolume, PRODUCT_VOLUME, data.productVolumeOther),
     });
   }

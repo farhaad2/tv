@@ -24,7 +24,7 @@ import {
   OTHER_OPTION,
   PAYMENT_GATEWAYS,
   PRODUCT_VOLUME,
-  SIZE_RANGES,
+  PRODUCT_CATEGORIES,
 } from "@/lib/catalog";
 import { cn } from "@/lib/cn";
 import {
@@ -241,7 +241,7 @@ export function FormWizard() {
                   className={fieldClass}
                   value={data.storeName}
                   disabled={locked}
-                  placeholder="مثلاً فریمان الکترونیک"
+                  placeholder="مثلاً فیت‌استور"
                   onChange={(event) => patch({ storeName: event.target.value })}
                 />
               </Field>
@@ -316,7 +316,7 @@ export function FormWizard() {
                   className={`${fieldClass} min-h-24`}
                   value={data.storeDescription}
                   disabled={locked}
-                  placeholder="چند سال است فروش تلویزیون می‌کنید؟ مشتری‌های شما بیشتر حضوری می‌خرند یا آنلاین؟"
+                  placeholder="چند سال است لوازم ورزشی می‌فروشید؟ مشتری‌هایتان بیشتر ورزشکار، باشگاه و خانواده هستند یا خرید اینترنتی؟"
                   onChange={(event) => patch({ storeDescription: event.target.value })}
                 />
               </Field>
@@ -354,12 +354,12 @@ export function FormWizard() {
                 />
               )}
               <OptionSection
-                label="بازه سایز *"
+                label="دسته‌های کالا *"
                 hint={FORM_SECTION_HINTS.sizeRanges}
                 selectionHint={MULTI_SELECT_HINT}
               />
               <div className={optionGridClass}>
-                {SIZE_RANGES.map((item) => (
+                {PRODUCT_CATEGORIES.map((item) => (
                   <OptionButton
                     key={item.id}
                     selected={data.sizeRanges.includes(item.id)}
@@ -376,12 +376,12 @@ export function FormWizard() {
                   name="sizeRangesOther"
                   value={data.sizeRangesOther}
                   disabled={locked}
-                  placeholder="بازه سایز دلخواه خود را بنویسید"
+                  placeholder="دسته دیگری که می‌خواهید در سایت باشد"
                   onChange={(value) => patch({ sizeRangesOther: value })}
                 />
               )}
               <OptionSection
-                label="تعداد مدل *"
+                label="حجم کاتالوگ *"
                 hint={FORM_SECTION_HINTS.productVolume}
                 selectionHint={SINGLE_SELECT_HINT}
               />
@@ -474,7 +474,7 @@ export function FormWizard() {
                   className={`${fieldClass} min-h-24`}
                   value={data.buyerNotes}
                   disabled={locked}
-                  placeholder="مثلاً می‌خواهم مشتری قبل از پرداخت هزینه ارسال و نصب را ببیند"
+                  placeholder="مثلاً مشتری باید قبل از خرید، جدول سایز کفش و هزینه ارسال را ببیند"
                   onChange={(event) => patch({ buyerNotes: event.target.value })}
                 />
               </Field>
@@ -547,14 +547,14 @@ export function FormWizard() {
               <div className={optionGridClass}>
                 <OptionButton
                   selected={data.installationOnSite}
-                  title="سفارش نصب در محل"
-                  subtitle="مشتری هنگام خرید نصب دیواری را انتخاب کند"
+                  title="مرجوعی و تعویض سایز"
+                  subtitle="خریدار بتواند لباس یا کفش نامناسب را برگرداند یا عوض کند"
                   onClick={() => !locked && patch({ installationOnSite: !data.installationOnSite })}
                 />
                 <OptionButton
                   selected={data.warrantyDisplay}
                   title="نمایش گارانتی"
-                  subtitle="گارانتی شرکتی و طلایی روی سایت"
+                  subtitle="گارانتی تجهیزات و اصالت کالا روی صفحه محصول"
                   onClick={() => !locked && patch({ warrantyDisplay: !data.warrantyDisplay })}
                 />
                 <OptionButton
@@ -570,7 +570,7 @@ export function FormWizard() {
                   className={`${fieldClass} min-h-24`}
                   value={data.servicesNotes}
                   disabled={locked}
-                  placeholder="مثلاً ارسال داخل منزل فقط برای ۶۵ اینچ به بالا"
+                  placeholder="مثلاً تعویض سایز کفش تا ۷ روز و ارسال رایگان بالای مبلغ مشخص"
                   onChange={(event) => patch({ servicesNotes: event.target.value })}
                 />
               </Field>
@@ -653,7 +653,7 @@ export function FormWizard() {
                   className={`${fieldClass} min-h-20`}
                   value={data.referenceSites}
                   disabled={locked}
-                  placeholder="مثلاً دیجی‌کالا، تکنولایف، سامسونگ ایران"
+                  placeholder="مثلاً namshi.com، نایکی یا آدیداس"
                   onChange={(event) => patch({ referenceSites: event.target.value })}
                 />
               </Field>
@@ -682,7 +682,7 @@ export function FormWizard() {
                 <OptionButton
                   selected={data.mobileFirst}
                   title="اولویت موبایل"
-                  subtitle="بیشتر مشتریان از گوشی می‌خرند"
+                  subtitle="بیشتر خریداران پوشاک از گوشی سفارش می‌دهند"
                   onClick={() => !locked && patch({ mobileFirst: !data.mobileFirst })}
                 />
               </div>
